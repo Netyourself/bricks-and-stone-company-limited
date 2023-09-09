@@ -31,6 +31,12 @@ const NavItem: React.FC<NavItemProps> = ({ href, children }) => {
         py={2}
         color={`${brandingColorThird}.500`}
         fontWeight='medium'
+        _hover={{
+          cursor: 'pointer',
+          transform: 'scale(1.02)',
+          //bg: `${brandingColorMain}.700`,
+          color: `${brandingColorSecond}.500`,
+        }}
       >
         {children}
       </Text>
@@ -76,8 +82,14 @@ const NavItems = () => {
                   py={2}
                   color={`${brandingColorThird}.500`}
                   fontWeight='medium'
+                  _hover={{
+                    cursor: 'pointer',
+                    transform: 'scale(1.02)',
+                    bg: `${brandingColorMain}.700`,
+                    color: `${brandingColorSecond}.500`,
+                  }}
                 >
-                  {service.title}
+                  {service.shortTitle}
                 </Text>
               </Link>
             ))}
@@ -105,8 +117,8 @@ const Navbar = () => {
           <Flex align='center'>
             <Link href='/'>
               {/* Add your logo component here */}
-              {/* <Box boxSize='50px' objectFit='cover'>
-                <Image src='/logo.png' alt='Logo' />
+              {/* <Box boxSize='50%' objectFit='cover'>
+                <Image src='/logo.jpeg' alt='Logo' />
               </Box> */}
               <Text fontWeight='bold' fontSize='2xl' ml={2}>
                 {companyName}

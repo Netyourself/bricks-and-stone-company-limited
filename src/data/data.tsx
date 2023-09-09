@@ -3,35 +3,52 @@ import { FaBlackTie, FaPizzaSlice, FaCloudMoonRain } from 'react-icons/fa';
 export const services = [
   {
     id: '1',
-    title: 'Bricks Laying',
+    shortTitle: 'Masonry',
+    title: 'Residential And Commercial Masonry',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa libero in, provident a quis incidunt cumque laborum facere debitis perferendis minima, veritatis quia iure delectus officia tenetur, voluptas ipsum sit!',
-    icon: 'FaPizzaSlice',
-    imageUrl: 'service1.jpg',
+      "Our expert masonry services cater to both residential and commercial projects. We specialize in crafting stunning structures from bricks and stones, ensuring durability and aesthetic appeal. Whether it's a new construction or renovation, trust us to deliver exceptional results that stand the test of time",
+    icon: 'building',
+    imageUrl: 'image4.jpeg',
   },
   {
     id: '2',
-    title: 'stone work',
+    shortTitle: 'Chimney',
+
+    title: 'Chimney Removals And Rebuild',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa libero in, provident a quis incidunt cumque laborum facere debitis perferendis minima, veritatis quia iure delectus officia tenetur, voluptas ipsum sit!',
-    icon: 'FaCloudMoonRain',
-    imageUrl: 'service1.jpg',
+      "If your chimney needs removal or rebuilding, we've got you covered. Our skilled team can safely remove and reconstruct chimneys to perfection. Enjoy a chimney that not only functions flawlessly but also enhances the architectural charm of your property.",
+    icon: 'chimney',
+    imageUrl: 'image0.jpeg',
   },
   {
     id: '3',
-    title: 'Indoor design',
+    shortTitle: 'Outside Walkways',
+
+    title: 'Outside Walkways Stone or Flagstong',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa libero in, provident a quis incidunt cumque laborum facere debitis perferendis minima, veritatis quia iure delectus officia tenetur, voluptas ipsum sit!',
-    icon: 'computer',
-    imageUrl: 'service1.jpg',
+      'Transform your outdoor spaces with our exquisite stone and flagstone walkways. Whether you desire a rustic, natural look or a more refined appearance, our walkway solutions add elegance and functionality to your surroundings. Explore the beauty of outdoor living with our expert craftsmanship.',
+    icon: 'walkways',
+    imageUrl: 'image5.jpeg',
   },
   {
     id: '4',
-    title: 'House cracks fixing',
+    shortTitle: 'Pointing Brickwork',
+
+    title: 'Expert Pointing, Brick, Stone & Block',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa libero in, provident a quis incidunt cumque laborum facere debitis perferendis minima, veritatis quia iure delectus officia tenetur, voluptas ipsum sit!',
-    icon: 'wash',
+      "When it comes to pointing, brickwork, stone, and block projects, we're the experts you can rely on. Our meticulous attention to detail ensures precise craftsmanship and structural integrity. From repairs to new installations, we take pride in delivering top-notch results.",
+    icon: 'stone',
     imageUrl: 'service1.jpg',
+  },
+  {
+    id: '5',
+    shortTitle: 'Block Foundation',
+
+    title: 'Stone & Block Foundation Repairs',
+    description:
+      "Don't let foundation issues compromise your property's stability. Our specialized stone and block foundation repair services address structural concerns effectively. Count on us to reinforce and restore your foundation, providing peace of mind for years to come.",
+    icon: 'blokc',
+    imageUrl: 'image8.jpeg',
   },
 ];
 
@@ -113,14 +130,14 @@ export const clientTestimonials = [
     name: 'John Smith',
     profession: 'Homeowner',
     quote:
-      'Bricks and Stone Company did an outstanding job on our retaining wall. Their attention to detail and quality of work exceeded our expectations.',
+      'Cain Contracting did an outstanding job on our retaining wall. Their attention to detail and quality of work exceeded our expectations.',
   },
   {
     id: '2',
     name: 'Mary Johnson',
     profession: 'Commercial Property Manager',
     quote:
-      'Weve been using Bricks and Stone Company for our commercial brickwork needs for years. They consistently deliver top-notch results.',
+      'Weve been using Cain Contracting for our commercial brickwork needs for years. They consistently deliver top-notch results.',
   },
   // Add more client testimonials as needed
 ];
