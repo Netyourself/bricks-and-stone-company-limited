@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react';
 
 import Layout from '@/componets/Layout';
-import { brandingColorMain, companyName } from '@/Utils/constants';
+import { brandingColorMain, companyName, contact } from '@/Utils/constants';
 
 interface FormValues {
   name: string;
@@ -51,23 +51,20 @@ const ContactUsPage: React.FC = () => {
             <Box>
               <Box display='flex' alignItems='center' mb={2}>
                 <FaMapMarkerAlt />
-                <Text
-                  ml={2}
-                  color='green.900'
-                >{`Buluk, Plot No. 2xxx, Munuki Payam`}</Text>
+                <Text ml={2} color='green.900'>{`${contact.address}`}</Text>
               </Box>
               <Box display='flex' alignItems='center' mb={2}>
                 <FaPhone />
                 <Text
                   ml={2}
                   color={`${brandingColorMain}.900`}
-                >{`Tel: 092000000, 091000000`}</Text>
+                >{`${contact.phone}`}</Text>
               </Box>
               <Box display='flex' alignItems='center' mb={2}>
                 <FaEnvelope />
                 <Text ml={2} color={`${brandingColorMain}.900`}>
                   Email:{' '}
-                  <Link href='mailto:test@gmail.com'>test@gmail.com</Link>
+                  <Link href={`mailto:${contact.email}`}>{contact.email}</Link>
                 </Text>
               </Box>
             </Box>
@@ -84,14 +81,13 @@ const ContactUsPage: React.FC = () => {
               h='72'
             >
               <iframe
-                title='Map'
-                src='https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1365.537557564575!2d31.571126195601593!3d4.855805771737045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1688048495135!5m2!1sen!2sus'
-                width='100%'
-                height='100%'
-                frameBorder='0'
+                src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3043.274932393715!2d-80.02618882408362!3d40.29185406323031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8834f94ee5013011%3A0xcf97ce031683a8ae!2s6226%20Pleasant%20St%2C%20South%20Park%20Township%2C%20PA%2015129%2C%20USA!5e0!3m2!1sen!2s!4v1694244607872!5m2!1sen!2s'
+                width='600'
+                height='450'
                 style={{ border: 0 }}
                 allowFullScreen
                 loading='lazy'
+                referrerPolicy='no-referrer-when-downgrade'
               ></iframe>
             </Box>
           </Box>

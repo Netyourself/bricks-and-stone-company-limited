@@ -1,7 +1,7 @@
 //import Link from 'next/link';
 import { Box, Flex, Icon, Link, Text } from '@chakra-ui/react';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
-import { brandingColorMain } from '@/Utils/constants';
+import { brandingColorMain, contact } from '@/Utils/constants';
 
 const Footer = () => {
   return (
@@ -10,8 +10,7 @@ const Footer = () => {
         <Flex justify='space-between' alignItems='center'>
           <Box>
             <Text color='white' fontSize='lg' fontWeight='bold'>
-              &copy; {new Date().getFullYear()} Bricks & Stone Company Limited
-              South Sudan
+              &copy; {new Date().getFullYear()} Cain Contracting
             </Text>
             <Text color='white' fontSize='sm'>
               All rights reserved
@@ -34,13 +33,13 @@ const Footer = () => {
         </Flex>
         <Box mt={4}>
           <Text color='white' fontSize='sm'>
-            Address: Buluk, Plot No. xxx, Munuki Payam
+            Address: {contact.address}
           </Text>
           <Text color='white' fontSize='sm'>
-            Tel: 092000000, 0910000000
+            Tel: {contact.phone}
           </Text>
           <Text color='white' fontSize='sm'>
-            Email: test@gmail.com
+            Email: {contact.email}
           </Text>
         </Box>
       </Box>

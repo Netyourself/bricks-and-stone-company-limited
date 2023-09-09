@@ -85,7 +85,6 @@ const HomePage = () => {
           </Box>
         </Box>
       </section>
-
       {/* Highlight Section */}
       <section className='bg-gray-50 py-16 md:py-24'>
         <div className='container mx-auto px-4'>

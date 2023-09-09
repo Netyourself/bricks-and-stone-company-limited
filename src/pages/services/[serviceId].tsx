@@ -21,6 +21,7 @@ import {
   brandingColorMain,
   brandingColorSecond,
   companyName,
+  contact,
 } from '@/Utils/constants';
 
 interface Service {
@@ -42,8 +43,13 @@ const ServiceDetailsPage: React.FC<Service> = () => {
   }
 
   // Get the data
-  const { id, title, description, imageUrl } = service;
-  const activities = ['stone work', 'querraying', 'red bricks', 'etc'];
+  const { id, shortTitle, title, description, imageUrl } = service;
+  const activities = [
+    'stone work',
+    'block foundation',
+    'expert pointing',
+    'etc',
+  ];
   return (
     <Layout>
       <Box py={8} px={4} max-w='800px' mx='auto'>
@@ -55,7 +61,7 @@ const ServiceDetailsPage: React.FC<Service> = () => {
           <Image
             objectFit='cover'
             maxW={{ base: '100%', sm: '200px' }}
-            src='/service1.jpg'
+            src={`/${imageUrl}`}
             alt={`${companyName} services`}
           />
 
@@ -65,7 +71,7 @@ const ServiceDetailsPage: React.FC<Service> = () => {
                 {title}
               </Heading>
               <Text py='2' color='gray.500'>
-                {`Juba South Sudan ${new Date().getFullYear()}`}
+                {`${contact.address} | Ongoing | ${new Date().getFullYear()}`}
               </Text>
               <Text py='5' color={`${brandingColorMain}.900`}>
                 {description}
@@ -84,7 +90,7 @@ const ServiceDetailsPage: React.FC<Service> = () => {
             </CardFooter>
           </Stack>
         </Card>
-        <Heading color={`${brandingColorMain}.500`} size='md' mb={4} mt={10}>
+        {/* <Heading color={`${brandingColorMain}.500`} size='md' mb={4} mt={10}>
           Functional Areas
         </Heading>
 
@@ -97,7 +103,7 @@ const ServiceDetailsPage: React.FC<Service> = () => {
           >
             {activity}
           </Text>
-        ))}
+        ))} */}
       </Box>
     </Layout>
   );

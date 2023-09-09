@@ -41,7 +41,7 @@ const ServiceCard: React.FC<{ service: Service }> = ({ service }) => {
       <Image
         src={service.imageUrl}
         alt={service.title}
-        h='200px'
+        h='300px'
         objectFit='cover'
         mb='4'
         opacity='0.9'
@@ -57,10 +57,24 @@ const ServiceCard: React.FC<{ service: Service }> = ({ service }) => {
       >
         {service.title}
       </Heading>
-      <Text color='gray.500'>{service.description}</Text>
-      <Button variant='outline' colorScheme={`${brandingColorSecond}`} mt='4'>
+      <Text color='gray.500'>
+        {`${service.description.slice(0, 200)}`}
+        {service.description.length > 200 && (
+          <Button
+            variant='link'
+            size='sm'
+            colorScheme={`${brandingColorSecond}`}
+          >
+            {' ...'}
+            Read More
+          </Button>
+        )}
+      </Text>
+
+      {/* <Text color='gray.500'>{service.description}</Text> */}
+      {/* <Button variant='outline' colorScheme={`${brandingColorSecond}`} mt='4'>
         View details
-      </Button>
+      </Button> */}
     </Card>
   );
 };
