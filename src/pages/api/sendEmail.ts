@@ -36,7 +36,7 @@ export default async function sendEmailHandler(
       // Email content
       const mailOptions = {
         from: 'cain-masonry.com Website form',
-        to: 'netyourself@gmail.com', // The recipient's email address
+        to: 'caincontracting5@gmail.com', // The recipient's email address
         subject: 'New Cain Contracting Website Contact Form Submission',
         text: `Name: ${data.name}\nEmail: ${data.email}\nMessage: ${data.message}`,
         replyTo: data.email,
