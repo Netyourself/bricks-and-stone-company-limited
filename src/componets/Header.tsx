@@ -96,6 +96,7 @@ const NavItems = () => {
           </Box>
         )}
       </Box>
+      <NavItem href='/gallery'>Gallery</NavItem>
       <NavItem href='/contact'>Contact Us</NavItem>
     </>
   );

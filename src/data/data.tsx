@@ -141,3 +141,55 @@ export const clientTestimonials = [
   },
   // Add more client testimonials as needed
 ];
+
+export const galleryData =
+  // galleryData.json
+  [
+    {
+      id: 1,
+      filename: 'image0.jpeg',
+      description: 'Working on Chimney',
+    },
+    {
+      id: 9,
+      filename: 'image8.jpeg',
+      description: 'In work progress chimney',
+    },
+    {
+      id: 2,
+      filename: 'image00.jpg',
+      description: 'Fixed Chimney',
+    },
+    {
+      id: 3,
+      filename: 'image1.jpeg',
+      description: 'Fixed outside walkaway',
+    },
+    {
+      id: 4,
+      filename: 'image2.jpeg',
+      description: 'Nice looking house chimney',
+    },
+    {
+      id: 5,
+      filename: 'image3.jpeg',
+      description: 'Nice looking house chimney',
+    },
+    {
+      id: 6,
+      filename: 'image4.jpeg',
+      description: 'commercial house',
+    },
+    {
+      id: 7,
+      filename: 'image5.jpeg',
+      description: 'Outside walkaway',
+    },
+    {
+      id: 8,
+      filename: 'image7.jpeg',
+      description: 'In work progress chimney',
+    },
+
+    // Add more image entries
+  ];

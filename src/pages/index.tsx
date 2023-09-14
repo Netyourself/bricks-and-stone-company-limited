@@ -80,7 +80,7 @@ const HomePage = () => {
               size='lg'
               mt={6}
             >
-              Get a Quotation
+              Get a Quote
             </Button>
           </Box>
         </Box>
