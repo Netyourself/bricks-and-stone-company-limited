@@ -39,6 +39,7 @@ export default async function sendEmailHandler(
         to: 'caincontracting5@gmail.com', // The recipient's email address
         subject: 'New Cain Contracting Website Contact Form Submission',
         text: `Name: ${data.name}\nEmail: ${data.email}\nMessage: ${data.message}`,
+        replyTo: data.email,
       };
       // Send the email
       await transporter.sendMail(mailOptions);

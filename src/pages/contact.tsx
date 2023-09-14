@@ -14,7 +14,12 @@ import {
 } from '@chakra-ui/react';
 
 import Layout from '@/componets/Layout';
-import { brandingColorMain, companyName, contact } from '@/Utils/constants';
+import {
+  brandingColorMain,
+  brandingColorSecond,
+  companyName,
+  contact,
+} from '@/Utils/constants';
 
 interface FormValues {
   name: string;
@@ -35,6 +40,7 @@ const ContactUsPage: React.FC = () => {
     // TODO - implement email forwarding or service for contact
     // send data to email serverless services
     try {
+      setIsSubmitted(false);
       const response = await fetch('/api/sendEmail', {
         method: 'POST',
         body: JSON.stringify(data),
@@ -120,6 +126,11 @@ const ContactUsPage: React.FC = () => {
         <Heading as='h3' size='lg' mb={4} color='green.500'>
           Send us a message
         </Heading>
+        {isSubmitted == false && (
+          <Text color={`${brandingColorSecond}.500`} fontSize='25px'>
+            Sending message! please wait....
+          </Text>
+        )}
         {isSubmitted && (
           <Text color={`${brandingColorMain}.500`} fontSize='25px'>
             Thank you for contacting us, message received, one of our team
