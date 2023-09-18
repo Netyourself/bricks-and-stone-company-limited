@@ -12,8 +12,13 @@ import {
 import Layout from '@/componets/Layout';
 import { teamMembers } from '@/data/data';
 import { companyName, aboutUs, brandingColorMain } from '@/Utils/constants';
+import useFetchPageContent from '@/hooks/useFetchPageContent';
 
 const AboutUsPage: React.FC = () => {
+  const aboutURL = 'pages/9';
+  const missionURL = 'pages/52';
+  const aboutUsAPI = useFetchPageContent(aboutURL) as string;
+  const missionAndVisionAPI = useFetchPageContent(missionURL) as string;
   return (
     <Layout>
       <Box
@@ -44,7 +49,7 @@ const AboutUsPage: React.FC = () => {
               fontSize='xl'
               color={`${brandingColorMain}.800`}
             >
-              {aboutUs}
+              {aboutUsAPI || aboutUs}
             </Text>
           </Box>
           {/* Core Values Section */}
@@ -66,8 +71,8 @@ const AboutUsPage: React.FC = () => {
             </Heading>
             <Box textAlign='center'>
               <Text fontSize='xl' color={`${brandingColorMain}.800`}>
-                Driving local solutions towards local problems through local
-                conceptualization design
+                {missionAndVisionAPI ||
+                  'Driving local solutions towards local problems through local conceptualization design'}
               </Text>
               <Text fontSize='xl' color={`${brandingColorMain}.800`}>
                 Quality house and rooms design with local made bricks and stones
@@ -75,8 +80,8 @@ const AboutUsPage: React.FC = () => {
             </Box>
           </Box>
         </Stack>
-
-        <Heading as='h3' size='lg' mb={4}>
+        {/* Team Members section */}
+        {/* <Heading as='h3' size='lg' mb={4}>
           Our Team
         </Heading>
 
@@ -99,6 +104,7 @@ const AboutUsPage: React.FC = () => {
             </WrapItem>
           ))}
         </Wrap>
+       */}
       </Box>
     </Layout>
   );

@@ -20,6 +20,7 @@ import {
   companyName,
   contact,
 } from '@/Utils/constants';
+import useFetchPageContent from '@/hooks/useFetchPageContent';
 
 interface FormValues {
   name: string;
@@ -48,7 +49,6 @@ const ContactUsPage: React.FC = () => {
           'Content-Type': 'application/json',
         },
       });
-      console.log(response);
 
       if (response.ok) {
         setIsSubmitted(true);
@@ -65,7 +65,10 @@ const ContactUsPage: React.FC = () => {
 
     //setIsSubmitted(true);
   };
-
+  const contactPhoneURL = 'pages/14';
+  const contactEmailURL = 'pages/56';
+  const contactPhoneAPI = useFetchPageContent(contactPhoneURL) as string;
+  const contactEmailAPI = useFetchPageContent(contactEmailURL) as string;
   return (
     <Layout>
       <Box py={8} px={4} maxW='6xl' mx='auto'>
@@ -85,16 +88,17 @@ const ContactUsPage: React.FC = () => {
               </Box>
               <Box display='flex' alignItems='center' mb={2}>
                 <FaPhone />
-                <Text
-                  ml={2}
-                  color={`${brandingColorMain}.900`}
-                >{`${contact.phone}`}</Text>
+                <Text ml={2} color={`${brandingColorMain}.900`}>
+                  {`${contactPhoneAPI || contact.phone}`}
+                </Text>
               </Box>
               <Box display='flex' alignItems='center' mb={2}>
                 <FaEnvelope />
                 <Text ml={2} color={`${brandingColorMain}.900`}>
                   Email:{' '}
-                  <Link href={`mailto:${contact.email}`}>{contact.email}</Link>
+                  <Link href={`mailto:${contactEmailAPI || contact.email}`}>
+                    {contactEmailAPI || contact.email}
+                  </Link>
                 </Text>
               </Box>
             </Box>

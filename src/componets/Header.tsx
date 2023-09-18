@@ -17,10 +17,18 @@ import {
   companyName,
 } from '@/Utils/constants';
 import { services } from '@/data/data';
+import useFetchPageContent from '@/hooks/useFetchPageContent';
+import { transformedServiceContent } from '@/Utils/transformServicesFromWP';
 
 interface NavItemProps {
   href: string;
   children: React.ReactNode;
+}
+
+interface Services {
+  id: string;
+  title: string;
+  shortTitle?: string;
 }
 
 const NavItem: React.FC<NavItemProps> = ({ href, children }) => {
@@ -46,8 +54,10 @@ const NavItem: React.FC<NavItemProps> = ({ href, children }) => {
 
 const NavItems = () => {
   const [servicesOpen, setServicesOpen] = useState(false);
+  const servicesURL = 'services';
+  const servicesAPI = useFetchPageContent(servicesURL);
+  const servicesAPIData = transformedServiceContent(servicesAPI);
 
-  // Add more services as needed
   return (
     <>
       <NavItem href='/'>Home</NavItem>
@@ -75,8 +85,8 @@ const NavItems = () => {
             onMouseEnter={() => setServicesOpen(true)}
             onMouseLeave={() => setServicesOpen(false)}
           >
-            {services.map((service) => (
-              <Link key={service.id} href={`/services/${service.id}`}>
+            {(servicesAPIData || services).map((service: Services) => (
+              <Link key={service.id} href={`/services/${service?.id}`}>
                 <Text
                   px={4}
                   py={2}
@@ -89,7 +99,7 @@ const NavItems = () => {
                     color: `${brandingColorSecond}.500`,
                   }}
                 >
-                  {service.shortTitle}
+                  {service?.shortTitle}
                 </Text>
               </Link>
             ))}

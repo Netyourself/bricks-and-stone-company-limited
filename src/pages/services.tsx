@@ -9,13 +9,20 @@ import Footer from '@/componets/Footer';
 import Layout from '@/componets/Layout';
 
 import 'tailwindcss/tailwind.css';
+import useFetchPageContent from '@/hooks/useFetchPageContent';
+import { htmlToTextUtil } from '@/Utils/htmlToText';
+import { transformedServiceContent } from '@/Utils/transformServicesFromWP';
 
 const ServicePage = () => {
+  const servicesURL = 'services';
+  const servicesAPI = useFetchPageContent(servicesURL);
+  const transformedContent = transformedServiceContent(servicesAPI);
+
   return (
     <Layout>
       <ItemsCard
         cardTitle='Our Services'
-        services={services}
+        services={transformedContent || services}
         wrapWithLink={true}
         linkUrl='services'
       />

@@ -25,6 +25,10 @@ import {
   FaHandsHelping,
   FaHouseDamage,
 } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
+import { fetchPageContent } from '@/services/wordpressService';
+import useFetchPageContent from '@/hooks/useFetchPageContent';
+import { transformedServiceContent } from '@/Utils/transformServicesFromWP';
 
 const HomePage = () => {
   function iconNameToComponent(iconName: string) {
@@ -39,6 +43,12 @@ const HomePage = () => {
         return FaHouseDamage;
     }
   }
+
+  const pitchURL = 'pages/12';
+  const servicesURL = 'services';
+  const pitchTextAPI = useFetchPageContent(pitchURL) as string;
+  const servicesAPI = useFetchPageContent(servicesURL);
+  const transformedContent = transformedServiceContent(servicesAPI);
 
   return (
     <Layout>
@@ -70,7 +80,7 @@ const HomePage = () => {
             <h2 className='text-lg font-bold mb-5'>
               <q>{slogan}</q>
             </h2>
-            <p className='text-base md:text-lg'>{pitchText}</p>
+            <p className='text-base md:text-lg'>{pitchTextAPI || pitchText}</p>
             <Button
               as='a'
               href='/contact'
@@ -153,7 +163,7 @@ const HomePage = () => {
         <div className='container mx-auto px-4'>
           <ItemsCard
             cardTitle='Our Services'
-            services={services}
+            services={transformedContent || services}
             wrapWithLink={true}
             linkUrl='services'
           />
