@@ -23,12 +23,15 @@ import {
   companyName,
   contact,
 } from '@/Utils/constants';
+import useFetchPageContent from '@/hooks/useFetchPageContent';
+import { transformedServiceContent } from '@/Utils/transformServicesFromWP';
 
 interface Service {
   id: string;
   title: string;
-  location: string;
-  status: boolean;
+  shortTitle: string;
+  location?: string;
+  status?: boolean;
   description: string;
   imageUrl: string;
 }
@@ -36,14 +39,25 @@ interface Service {
 const ServiceDetailsPage: React.FC<Service> = () => {
   const router = useRouter();
   const { serviceId } = router.query;
-  const service = services.find((service) => service.id === serviceId);
-  if (!service) {
+  const servicesURL = 'services';
+  const servicesAPI = useFetchPageContent(servicesURL);
+  const servicesAPIData = transformedServiceContent(servicesAPI);
+  const serviceAPIData = servicesAPIData?.find((service: any) => {
+    return String(service.id) === serviceId;
+  }) as Service;
+  //console.log('Service API', serviceAPIData.imageUrl, serviceAPIData);
+
+  const service = services.find(
+    (service) => String(service.id) === serviceId
+  ) as unknown as Service;
+
+  if (!serviceAPIData && !service) {
     // Render not found page component
     return <div>service not found</div>;
   }
 
   // Get the data
-  const { id, shortTitle, title, description, imageUrl } = service;
+  const { id, shortTitle, title, description, imageUrl } = service || {}; // Add {} incase service is undefined to avoid UI runtime errors
   const activities = [
     'stone work',
     'block foundation',
@@ -61,20 +75,20 @@ const ServiceDetailsPage: React.FC<Service> = () => {
           <Image
             objectFit='cover'
             maxW={{ base: '100%', sm: '200px' }}
-            src={`/${imageUrl}`}
+            src={`${serviceAPIData?.imageUrl || `/${imageUrl}`}`}
             alt={`${companyName} services`}
           />
 
           <Stack>
             <CardBody>
               <Heading color={`${brandingColorMain}.500`} size='2xl' mb={4}>
-                {title}
+                {serviceAPIData?.title || title}
               </Heading>
               <Text py='2' color='gray.500'>
                 {`${contact.address} | Ongoing | ${new Date().getFullYear()}`}
               </Text>
               <Text py='5' color={`${brandingColorMain}.900`}>
-                {description}
+                {serviceAPIData?.description || description}
               </Text>
             </CardBody>
 
